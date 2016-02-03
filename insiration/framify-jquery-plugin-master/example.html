@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Untitled Document</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="framify.js"></script>
+<script>
+	$(function(){
+
+		var framifySections =
+			'#head,' +
+			'#head .column-content,' +
+			'#video,' +
+			'#video .column-content,' +
+			'#blog,' +
+			'#blog .column-content,' +
+			'#form,' +
+			'#form .column-content,' +
+			'#audio,' +
+			'#audio .column-content,' +
+			'#canvas,' +
+			'#canvas .column-content,' +
+			'#foot,' +
+			'#foot .column-content';
+
+		var framifyOptions = {
+			'grid': '#grid',
+			'columns': '12',
+			'gutter': '1.875rem'
+		};
+
+		$(framifySections).framify(framifyOptions);
+	});
+</script>
+<style>
+/* Reset
+------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe, table, caption, tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+:focus {
+  outline: 0; }
+
+html {
+  font-size: 100%;
+  text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: none; }
+
+body {
+  background: white;
+  line-height: 1.5em;
+  color: black; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  font-weight: normal;
+  text-align: left; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+abbr, acronym {
+  border: 0; }
+
+fieldset, img {
+  border: 0; }
+
+/* Base Styles
+------------------------------------------------------------*/
+img {
+  display: block; }
+
+h1, h2, p {
+  padding: 1em; }
+
+input, textarea, button, select {
+  font-family: serif;
+  font-size: 1em;
+  border-offset: -1px;
+  border: 1px solid #000; }
+
+/* Layout: Desktop Large, iPad Landscape, IE6, IE7, IE8
+------------------------------------------------------------*/
+/* @media screen and (min-width: 1221px) { */
+body {
+  text-align: center; }
+
+#grid {
+  text-align: left;
+  width: 1200px;
+  margin: 0 auto; }
+
+#head {
+  float: left;
+  width: 100%; }
+  #head img {
+	width: 100%; }
+  #head nav ul {
+	text-align: center; }
+	#head nav ul li {
+	  display: inline; }
+	  #head nav ul li a {
+		padding: 1em;
+		line-height: 50px; }
+
+#body {
+  float: left;
+  width: 100%; }
+  #body #video {
+	float: left;
+	width: 100%; }
+	#body #video video {
+	  width: 100%;
+	  display: block; }
+	#body #video object {
+	  width: 100%;
+	  display: block; }
+	#body #video embed {
+	  width: 100%;
+	  display: block; }
+	#body #video img {
+	  width: 100%;
+	  display: block; }
+  #body #blog {
+	float: left;
+	width: 75%; }
+	#body #blog ol li {
+	  float: left;
+	  width: 33.333%; }
+	  #body #blog ol li article img {
+		float: left;
+		margin: 1em; }
+	  #body #blog ol li article .canvas {
+		float: left;
+		margin: 1em; }
+	  #body #blog ol li article a {
+		display: block;
+		padding: 0 1em 1em;
+		text-align: right; }
+  #body #sidebar {
+	float: left;
+	width: 25%; }
+	#body #sidebar #form {
+	  float: left;
+	  width: 100%; }
+	  #body #sidebar #form form {
+		padding: 1em; }
+		#body #sidebar #form form label {
+		  display: block; }
+		#body #sidebar #form form #email-address, #body #sidebar #form form #message {
+		  margin-bottom: 1em;
+		  display: block;
+		  width: 100%; }
+		#body #sidebar #form form #email-address {
+		  padding: .5em 0; }
+		#body #sidebar #form form #message {
+		  padding: .5em 0 0 0; }
+		#body #sidebar #form form #action {
+		  padding: .5em;
+		  -webkit-border-radius: ".5em";
+		  -khtml-border-radius: ".5em";
+		  -moz-border-radius: ".5em";
+		  -ms-border-radius: ".5em";
+		  -o-border-radius: ".5em";
+		  border-radius: ".5em"; }
+	#body #sidebar #audio {
+	  float: left;
+	  width: 100%; }
+	  #body #sidebar #audio audio {
+		width: 100%; }
+	#body #sidebar #canvas {
+	  float: left;
+	  width: 100%; }
+
+#foot {
+  float: left;
+  width: 100%; }
+  #foot div div {
+	padding: 1em; }
+	#foot div div table {
+	  width: 100%; }
+
+.column-content {
+  margin: 15px;
+  margin: 0.938rem; }
+
+@media screen and (max-width: 1220px) {
+  #grid {
+	width: 100%; }
+
+  #body #blog {
+	float: left;
+	width: 66.667%; }
+	#body #blog ol li {
+	  float: left;
+	  width: 50%; }
+  #body #sidebar {
+	float: left;
+	width: 33.333%; } }
+@media screen and (max-width: 768px) {
+  #body #blog {
+	float: left;
+	width: 100%; }
+  #body #sidebar {
+	float: left;
+	width: 100%; } }
+@media screen and (max-width: 480px) {
+  #body #blog ol li {
+	float: left;
+	width: 100%; } }
+/* Appearance
+------------------------------------------------------------*/
+.styled a {
+  color: red; }
+  .styled a:link, .styled a:visited, .styled a:hover, .styled a:active {
+	color: red; }
+.styled .column-content {
+  background-color: #ccc;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px; }
+</style>
+</head>
+
+<body class="styled">
+	<div id="grid">
+		<header id="head">
+			<div class="column-content">
+				<img alt="placeholder" src="http://placehold.it/900x200/808080/000&amp;text=Image" />
+				<nav>
+					<ul>
+						<li><a href="#">Navigation Link</a></li>
+						<li><a href="#">Navigation Link</a></li>
+						<li><a href="#">Navigation Link</a></li>
+						<li><a href="#">Navigation Link</a></li>
+						<li><a href="#">Navigation Link</a></li>
+						<li><a href="#">Navigation Link</a></li>
+						<li><a href="#">Navigation Link</a></li>
+					</ul>
+		   		</nav>
+			</div>
+		</header>
+		<div id="body">
+			<div id="video">
+				<div class="column-content">
+					<video controls poster="http://placehold.it/1920x1080/808080/000&amp;text=Video">
+					</video>
+				</div>
+			</div>
+			<div id="blog">
+				<ol>
+					<li>
+						<div class="column-content">
+							<article>
+								<header>
+									<h1>Entry Title</h1>
+								</header>
+								<img alt="placeholder" src="http://placehold.it/100x100/808080/000&amp;text=Image" />
+								<p>A summary or introductory paragraph for this entry.  Big enough to give an idea of the entry's content.  Small enough to remain unobtrusive.</p>
+								<a href="#">Full Article</a>
+							</article>
+						</div>
+					</li>
+					<li>
+						<div class="column-content">
+							<article>
+								<header>
+									<h1>Entry Title</h1>
+								</header>
+								<img alt="placeholder" src="http://placehold.it/100x100/808080/000&amp;text=Image" />
+								<p>A summary or introductory paragraph for this entry.  Big enough to give an idea of the entry's content.  Small enough to remain unobtrusive.</p>
+								<a href="#">Full Article</a>
+							</article>
+						</div>
+					</li>
+					<li>
+						<div class="column-content">
+							<article>
+								<header>
+									<h1>Entry Title</h1>
+								</header>
+								<img alt="placeholder" src="http://placehold.it/100x100/808080/000&amp;text=Image" />
+								<p>A summary or introductory paragraph for this entry.  Big enough to give an idea of the entry's content.  Small enough to remain unobtrusive.</p>
+								<a href="#">Full Article</a>
+							</article>
+						</div>
+					</li>
+					<li>
+						<div class="column-content">
+							<article>
+								<header>
+									<h1>Entry Title</h1>
+								</header>
+								<img alt="placeholder" src="http://placehold.it/100x100/808080/000&amp;text=Image" />
+								<p>A summary or introductory paragraph for this entry.  Big enough to give an idea of the entry's content.  Small enough to remain unobtrusive.</p>
+								<a href="#">Full Article</a>
+							</article>
+						</div>
+					</li>
+					<li>
+						<div class="column-content">
+							<article>
+								<header>
+									<h1>Entry Title</h1>
+								</header>
+								<img alt="placeholder" src="http://placehold.it/100x100/808080/000&amp;text=Image" />
+								<p>A summary or introductory paragraph for this entry.  Big enough to give an idea of the entry's content.  Small enough to remain unobtrusive.</p>
+								<a href="#">Full Article</a>
+							</article>
+						</div>
+					</li>
+					<li>
+						<div class="column-content">
+							<article>
+								<header>
+									<h1>Entry Title</h1>
+								</header>
+								<img alt="placeholder" src="http://placehold.it/100x100/808080/000&amp;text=Image" />
+								<p>A summary or introductory paragraph for this entry.  Big enough to give an idea of the entry's content.  Small enough to remain unobtrusive.</p>
+								<a href="#">Full Article</a>
+							</article>
+						</div>
+					</li>
+				</ol>
+			</div>
+			<aside id="sidebar">
+				<div id="form">
+					<div class="column-content">
+						<h1>Contact</h1>
+						<form>
+							<label><input type="radio" name="radio" value="one" checked="checked" />One</label>
+							<label><input type="radio" name="radio" value="two" />Two</label>
+							<label><input type="radio" name="radio" value="three" />Three</label>
+							<label><input type="checkbox" name="checkbox" value="one" checked="checked" />One</label>
+							<label><input type="checkbox" name="checkbox" value="two" />Two</label>
+							<label><input type="checkbox" name="checkbox" value="three" />Three</label>
+	 						<label for="email-address">Email Address</label>
+							<input name="email-address" id="email-address" type="text" />
+							<label for="message">Message</label>
+							<textarea name="message" id="message"></textarea>
+							<input name="action" id="action" type="reset" value="Send" />
+						</form>
+					</div>
+				</div>
+				<div id="audio">
+					<div class="column-content">
+						<audio controls="controls">
+						</audio>
+					</div>
+				</div>
+				<div id="canvas">
+					<div class="column-content">
+						<canvas height="100" width="150"></canvas>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<footer id="foot">
+			<div class="column-content">
+				<div>
+					<table>
+						<caption>A Table</caption>
+						<thead>
+							<tr>
+								<th>Column Header</th>
+								<th>Column Header</th>
+								<th>Column Header</th>
+								<th>Column Header</th>
+								<th>Column Header</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Row Header</th>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+							</tr>
+							<tr>
+								<th>Row Header</th>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+							</tr>
+							<tr>
+								<th>Row Header</th>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+							</tr>
+							<tr>
+								<th>Row Header</th>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+							</tr>
+							<tr>
+								<th>Row Header</th>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+								<td>Data Cell</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="5">Footer Cell</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</footer>
+		<div style="clear:both;"></div>
+	</div>
+</body>
+</html>

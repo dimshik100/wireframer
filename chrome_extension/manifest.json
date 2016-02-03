@@ -1,0 +1,26 @@
+{
+    "name": "MOCKUPME",
+    "version": "2.1",
+    "homepage_url": "http://www.dimshik.com",
+    "description": "make a mockup of this page",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": "icons/icon48.png",
+        "default_title": "MOCKUPME"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "background": {
+        "scripts": [ "background.js", "mockupme.js" ],
+        "persistent": false
+    },
+    "web_accessible_resources": [
+        "fonts/*.*"
+    ],
+    "manifest_version": 2
+}
